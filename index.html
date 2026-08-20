@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="da"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sulaman Khan | Bestillingssystemer til restauranter</title>
+<meta name="description" content="Jeg bygger bestillingssider og AI-chatagenter til danske restauranter. Prøv demoen.">
+<style>
+:root{--ink:#14201f;--mut:#6b7c7a;--line:#e2e7e6;--bg:#faf9f6;--dk:#173430;
+--ac:#2f7d6b;--ac2:#e8f3f0;--wa:#25d366;--warn:#b8763a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);
+font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,sans-serif;
+-webkit-font-smoothing:antialiased}
+.w{max-width:1040px;margin:0 auto;padding:0 24px}
+.demo-note{background:var(--warn);color:#fff;text-align:center;padding:9px 24px;
+font-size:13.5px;font-weight:600;letter-spacing:.01em}
+header{background:var(--dk);color:#fff;padding:64px 0 58px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+color:#7fbfae;margin-bottom:16px}
+h1{font-size:40px;line-height:1.12;letter-spacing:-.025em;max-width:16em;font-weight:700}
+header p{color:#b8d4cd;font-size:18px;margin-top:16px;max-width:34em}
+.hbtns{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--ac);color:#fff;text-decoration:none;
+padding:13px 22px;border-radius:8px;font-weight:650;font-size:15px;border:0;cursor:pointer}
+.btn:hover{background:#256556}
+.btn.g{background:transparent;border:1.5px solid #4d6f68;color:#cfe3de}
+.btn.g:hover{background:#1e3e39}
+section{padding:62px 0}
+h2{font-size:27px;letter-spacing:-.02em;margin-bottom:10px}
+.lede{color:var(--mut);font-size:17px;max-width:44em;margin-bottom:34px}
+/* ---- demo phone ---- */
+.stage{display:grid;grid-template-columns:340px 1fr;gap:44px;align-items:start}
+@media(max-width:860px){.stage{grid-template-columns:1fr}}
+.phone{background:#101d1b;border-radius:34px;padding:11px;box-shadow:0 20px 50px rgba(16,29,27,.24)}
+.screen{background:#fff;border-radius:25px;overflow:hidden;height:594px;
+display:flex;flex-direction:column;position:relative}
+.pbar{background:var(--dk);color:#fff;padding:13px 16px;display:flex;
+align-items:center;gap:10px;flex-shrink:0}
+.av{width:33px;height:33px;border-radius:50%;background:var(--ac);flex-shrink:0;
+display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.pbar b{font-size:14.5px;display:block;line-height:1.25}
+.pbar span{font-size:11.5px;color:#8ec9b9}
+.chan{margin-left:auto;font-size:10px;font-weight:700;letter-spacing:.07em;
+background:#2a4a45;padding:4px 7px;border-radius:4px;color:#a9d5c9}
+.thread{flex:1;overflow-y:auto;padding:16px 14px;background:#f2f5f4;
+display:flex;flex-direction:column;gap:9px}
+.msg{max-width:80%;padding:9px 13px;border-radius:15px;font-size:14.5px;line-height:1.5;
+animation:pop .26s ease-out}
+@keyframes pop{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.bot{background:#fff;align-self:flex-start;border-bottom-left-radius:5px;
+box-shadow:0 1px 2px rgba(0,0,0,.07)}
+.usr{background:var(--ac);color:#fff;align-self:flex-end;border-bottom-right-radius:5px}
+.sys{align-self:center;background:#dde6e4;color:#4a5c59;font-size:11.5px;
+padding:6px 12px;border-radius:11px;text-align:center;max-width:92%}
+.typing{align-self:flex-start;background:#fff;padding:12px 15px;border-radius:15px;
+border-bottom-left-radius:5px;display:flex;gap:4px;box-shadow:0 1px 2px rgba(0,0,0,.07)}
+.typing i{width:6px;height:6px;background:#9db3af;border-radius:50%;
+animation:bl 1.3s infinite}
+.typing i:nth-child(2){animation-delay:.18s}.typing i:nth-child(3){animation-delay:.36s}
+@keyframes bl{0%,60%,100%{opacity:.28}30%{opacity:1}}
+.reply{padding:11px 13px;background:#fff;border-top:1px solid var(--line);
+display:flex;gap:7px;flex-wrap:wrap;flex-shrink:0;min-height:56px;align-items:center}
+.chip{background:var(--ac2);border:1px solid #bfdcd4;color:#1f5a4d;border-radius:16px;
+padding:8px 13px;font-size:13.5px;cursor:pointer;font-weight:600;font-family:inherit}
+.chip:hover{background:#d5e9e3}
+.again{background:none;border:0;color:var(--ac);font-weight:700;font-size:13.5px;
+cursor:pointer;font-family:inherit;padding:8px 4px}
+/* ---- notes ---- */
+.notes{display:flex;flex-direction:column;gap:15px}
+.note{background:#fff;border:1px solid var(--line);border-radius:11px;padding:17px 19px;
+opacity:.32;transition:opacity .35s,border-color .35s}
+.note.on{opacity:1;border-color:#bfdcd4;box-shadow:0 2px 10px rgba(47,125,107,.09)}
+.note h4{font-size:15.5px;margin-bottom:5px;display:flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--line);flex-shrink:0}
+.note.on .dot{background:var(--ac)}
+.note p{font-size:14.5px;color:var(--mut)}
+/* ---- cards ---- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:19px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px}
+.card h3{font-size:18px;margin-bottom:9px}
+.card p{font-size:15px;color:var(--mut)}
+.card ul{list-style:none;margin-top:13px;font-size:14.5px}
+.card li{padding-left:19px;position:relative;margin-bottom:7px;color:var(--mut)}
+.card li:before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;
+border-radius:50%;background:var(--ac)}
+.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.chans{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
+.ch{font-size:13px;font-weight:650;padding:7px 13px;border-radius:20px;
+background:var(--ac2);color:#1f5a4d;border:1px solid #bfdcd4}
+.ch.w{background:#e6faed;color:#127a3c;border-color:#a8e8c1}
+.ch.o{background:#f0f2f1;color:var(--mut);border-color:var(--line)}
+footer{background:var(--dk);color:#b8d4cd;padding:52px 0 44px;font-size:15px}
+footer h2{color:#fff;margin-bottom:14px}
+footer a{color:#8ed7c3}
+.ed{background:#fff5e8;border:1px solid #f0d9b8;border-radius:10px;padding:15px 18px;
+font-size:14px;color:#7a5320;margin-top:26px}
+.ed b{color:#5c3d13}
+</style></head><body>
+
+<div class="demo-note">DEMO. Pizzeria Nord er ikke en rigtig restaurant. Alt herunder er bygget for at vise, hvordan systemet fungerer.</div>
+
+<header><div class="w">
+<p class="eyebrow">Freelance udvikler / København og hele Danmark</p>
+<h1>Bestillingssystemer og chatagenter til restauranter</h1>
+<p>Din egen bestillingsside i stedet for 30 procent i kommission. En agent der tager ordren, svarer gæsten på fire sprog og sender SMS, døgnet rundt.</p>
+<div class="hbtns">
+<button class="btn" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Prøv demoen</button>
+<a class="btn g" href="#kontakt">Kontakt</a>
+</div>
+</div></header>
+
+<section id="demo"><div class="w">
+<h2>Prøv agenten</h2>
+<p class="lede">Klik på svarene og se en bestilling gå igennem. Det her er en rigtig samtale, ikke en video. Panelet til højre viser, hvad der sker bag skærmen undervejs.</p>
+<div class="stage">
+  <div class="phone"><div class="screen">
+    <div class="pbar"><div class="av">PN</div>
+      <div><b>Pizzeria Nord</b><span id="st">Svarer med det samme</span></div>
+      <div class="chan" id="chan">WEBCHAT</div></div>
+    <div class="thread" id="th"></div>
+    <div class="reply" id="rp"></div>
+  </div></div>
+  <div class="notes" id="nt">
+    <div class="note" data-k="1"><h4><span class="dot"></span>Gæsten skriver, ikke klikker</h4>
+      <p>Ingen app, ingen konto, ingen menu at scrolle igennem. Agenten forstår "en stor pepperoni uden løg" og finder selv varen i menukortet.</p></div>
+    <div class="note" data-k="2"><h4><span class="dot"></span>Den svarer på det, telefonen ellers skal</h4>
+      <p>Allergier, halal, åbningstider, hvor lang tid der går. Det er de spørgsmål, der får folk til at ringe midt i myldretiden, eller til at gå videre til en anden.</p></div>
+    <div class="note" data-k="3"><h4><span class="dot"></span>Den sælger opad uden at være anmassende</h4>
+      <p>Et forslag, én gang, baseret på hvad der er i kurven. Gennemsnitsbonnen stiger, uden at gæsten oplever det som salg.</p></div>
+    <div class="note" data-k="4"><h4><span class="dot"></span>MobilePay direkte i samtalen</h4>
+      <p>Betaling sker med det, danskere faktisk bruger. Ingen omdirigering til en platform, og pengene går direkte til restauranten.</p></div>
+    <div class="note" data-k="5"><h4><span class="dot"></span>Nul kommission, og kunden er restaurantens</h4>
+      <p>Telefonnummeret, ordren og historikken ligger hos restauranten. Ikke hos Wolt. Næste gang kan de skrive til gæsten selv.</p></div>
+  </div>
+</div>
+
+<div class="ed"><b>Samme agent, flere kanaler.</b> Den samme samtale kan ligge på restaurantens egen side, på SMS, på Messenger og på WhatsApp. På den danske hjemmeside er webchat og SMS det, der rammer alle. WhatsApp giver mening for restauranter med mange udenlandske gæster, hvor tyske, hollandske og spanske turister i forvejen skriver.
+<div class="chans">
+<span class="ch">Webchat på egen side</span><span class="ch">SMS</span>
+<span class="ch w">WhatsApp</span><span class="ch">Messenger</span><span class="ch o">RCS, når Danmark er klar i 2027</span>
+</div></div>
+</div></section>
+
+<section class="alt"><div class="w">
+<h2>Hvad jeg bygger</h2>
+<p class="lede">Tre ting. De kan købes hver for sig, og jeg starter altid med en gratis demo på restaurantens eget menukort.</p>
+<div class="grid">
+<div class="card"><h3>Egen bestillingsside</h3>
+<p>På restaurantens eget domæne. Ingen kommission per ordre.</p>
+<ul><li>MobilePay og kort</li><li>SMS til gæsten når maden er klar</li><li>Bon til køkkenet eller printer</li><li>Flere afdelinger på én side</li></ul></div>
+<div class="card"><h3>Chatagent</h3>
+<p>Tager ordren og bordbestillingen, og svarer på spørgsmål.</p>
+<ul><li>Dansk, engelsk, tysk, spansk</li><li>Kender menuen og allergener</li><li>Sender kun besked videre når et menneske skal svare</li><li>Webchat, SMS, WhatsApp, Messenger</li></ul></div>
+<div class="card"><h3>Prognose</h3>
+<p>Hvor mange gæster kommer i morgen, og hvad skal der forberedes.</p>
+<ul><li>Bygget på restaurantens egne tal</li><li>Ugedag, sæson, ferier, vejr</li><li>Per dagsdel og per afdeling</li><li>Kan laves på sidste års tal, uden at installere noget</li></ul></div>
+</div></div></section>
+
+<footer id="kontakt"><div class="w">
+<h2>Skal jeg bygge en demo på jeres menukort?</h2>
+<p>Det er gratis, og I forpligter jer ikke til noget. Jeg bruger et par dage, I kigger på den, og så beslutter I.</p>
+<p style="margin-top:20px;font-size:17px;color:#fff">
+<b>Sulaman Khan</b><br>
+<a href="mailto:DIN-MAIL-HER">DIN-MAIL-HER</a><br>
+<a href="tel:DIT-NUMMER">DIT-NUMMER</a>
+</p>
+<p style="margin-top:26px;font-size:13.5px;color:#89aaa3">
+Demoen på denne side er bygget fra bunden. Pizzeria Nord er opdigtet, og priser og menu er eksempler.
+</p>
+</div></footer>
+
+<script>
+var TH=document.getElementById('th'),RP=document.getElementById('rp'),
+    ST=document.getElementById('st'),CH=document.getElementById('chan'),
+    NT=document.getElementById('nt');
+
+var SCRIPT=[
+ {t:'bot',x:'Hej og velkommen til Pizzeria Nord. Skal du hente eller have leveret?',k:1,
+  r:['Hente','Leveret']},
+ {t:'bot',x:'Fint. Hvad skulle det være?',
+  r:['En stor pepperoni uden løg','Hvad kan I anbefale?']},
+ {t:'bot',x:'Stor pepperoni, uden løg. 129 kr. Noteret.\n\nEr der andet?',k:2,
+  r:['Har I noget uden gluten?','Nej tak, det var det']},
+ {t:'bot',x:'Ja. Vi har glutenfri bund til alle pizzaer, det koster 20 kr ekstra. Skal jeg skifte din pepperoni til glutenfri?',
+  r:['Nej, almindelig bund er fine','Ja tak, glutenfri']},
+ {t:'bot',x:'Så bliver det den almindelige.\n\nMange tager en hvidløgsdip til pepperoni. 15 kr. Skal jeg lægge en ved?',k:3,
+  r:['Ja tak','Nej tak']},
+ {t:'bot',x:'Tilføjet.\n\nDin ordre:\n1 stor pepperoni uden løg, 129 kr\n1 hvidløgsdip, 15 kr\nI alt 144 kr\n\nKlar til afhentning om cirka 20 minutter. Skal jeg sende betalingen?',
+  r:['Ja, betal med MobilePay']},
+ {t:'sys',x:'MobilePay, 144,00 kr. Betaling gennemført.',k:4},
+ {t:'bot',x:'Tak. Ordren er sendt til køkkenet, og du får en SMS når den er klar til afhentning.'},
+ {t:'sys',x:'SMS sendt: "Din ordre hos Pizzeria Nord er klar. Vi ses. /Nord"',k:5},
+ {t:'end'}
+];
+
+var i=0;
+function note(k){
+  if(!k)return;
+  var n=NT.querySelector('[data-k="'+k+'"]');
+  if(n)n.classList.add('on');
+}
+function add(cls,txt){
+  var d=document.createElement('div');
+  d.className='msg '+cls; d.textContent=txt;
+  TH.appendChild(d); TH.scrollTop=TH.scrollHeight; return d;
+}
+function chips(list){
+  RP.innerHTML='';
+  list.forEach(function(label){
+    var b=document.createElement('button'); b.className='chip'; b.textContent=label;
+    b.onclick=function(){ add('usr',label); RP.innerHTML=''; i++; step(); };
+    RP.appendChild(b);
+  });
+}
+function step(){
+  var s=SCRIPT[i];
+  if(!s)return;
+  if(s.t==='end'){
+    ST.textContent='Samtalen er slut';
+    RP.innerHTML='';
+    var b=document.createElement('button'); b.className='again';
+    b.textContent='Kør demoen igen'; b.onclick=reset; RP.appendChild(b);
+    return;
+  }
+  if(s.t==='sys'){
+    setTimeout(function(){ add('sys',s.x); note(s.k); i++; step(); },700);
+    return;
+  }
+  ST.textContent='Skriver...';
+  var tp=document.createElement('div'); tp.className='typing';
+  tp.innerHTML='<i></i><i></i><i></i>'; TH.appendChild(tp); TH.scrollTop=TH.scrollHeight;
+  setTimeout(function(){
+    tp.remove(); ST.textContent='Svarer med det samme';
+    add('bot',s.x); note(s.k);
+    if(s.r)chips(s.r); else { i++; step(); }
+  }, 620+Math.min(s.x.length*7,900));
+}
+function reset(){
+  TH.innerHTML=''; RP.innerHTML=''; i=0;
+  NT.querySelectorAll('.note').forEach(function(n){n.classList.remove('on')});
+  step();
+}
+step();
+</script>
+</body></html>
