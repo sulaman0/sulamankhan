@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="da">
-<!-- Dansk version. English: en.html --><head><meta charset="utf-8">
+<html lang="en">
+<!-- English version. Dansk: index.html --><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sulaman Khan | Bestillingssystemer til restauranter</title>
-<meta name="description" content="Jeg bygger bestillingssider og AI-chatagenter til danske restauranter. Prøv demoen.">
+<title>Sulaman Khan | Ordering systems and AI agents for restaurants</title>
+<meta name="description" content="I build ordering systems and AI chat agents for restaurants. Try the live demo.">
 <style>
 :root{--ink:#14201f;--mut:#6b7c7a;--line:#e2e7e6;--bg:#faf9f6;--dk:#173430;
 --ac:#2f7d6b;--ac2:#e8f3f0;--wa:#25d366;--warn:#b8763a}
@@ -142,77 +142,76 @@ header{position:relative}
 }
 </style></head><body>
 
-<div class="demo-note">DEMO. Pizzeria Nord er ikke en rigtig restaurant. Alt herunder er bygget for at vise, hvordan systemet fungerer.</div>
+<div class="demo-note">DEMO. Pizzeria Nord is not a real restaurant. Everything below was built to show how the system works.</div>
 
-<header><div class="lang"><span class="cur">DA</span><a href="en.html" hreflang="en">EN</a></div>
+<header><div class="lang"><a href="index.html" hreflang="da">DA</a><span class="cur">EN</span></div>
 <div class="w">
-<p class="eyebrow">Freelance udvikler / København og hele Danmark</p>
-<h1>Bestillingssystemer og chatagenter til restauranter</h1>
-<p>Din egen bestillingsside i stedet for 30 procent i kommission. En agent der tager ordren, svarer gæsten på fire sprog og sender SMS, døgnet rundt.</p>
+<p class="eyebrow">Freelance developer / remote, working across Europe</p>
+<h1>Ordering systems and AI chat agents for restaurants</h1>
+<p>Your own ordering channel instead of 30 per cent commission to a delivery platform. An agent that takes the order, answers the guest in several languages and confirms by message, around the clock.</p>
 <div class="hbtns">
-<button class="btn" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Prøv demoen</button>
-<a class="btn g" href="#kontakt">Kontakt</a>
+<button class="btn" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Try the demo</button>
+<a class="btn g" href="#kontakt">Contact</a>
 </div>
 </div></header>
 
 <section id="demo"><div class="w">
-<h2>Prøv agenten</h2>
-<p class="lede">Klik på svarene og se en bestilling gå igennem. Det her er en rigtig samtale, ikke en video. Panelet viser, hvad der sker bag skærmen undervejs.</p>
+<h2>Try the agent</h2>
+<p class="lede">Click the replies and watch a full order go through. This is a working conversation, not a video. The panel shows what happens behind the screen at each step.</p>
 <div class="stage">
   <div class="phone"><div class="screen">
     <div class="pbar"><div class="av">PN</div>
-      <div><b>Pizzeria Nord</b><span id="st">Svarer med det samme</span></div>
+      <div><b>Pizzeria Nord</b><span id="st">Replies instantly</span></div>
       <div class="chan" id="chan">WEBCHAT</div></div>
     <div class="thread" id="th"></div>
     <div class="reply" id="rp"></div>
   </div></div>
   <div class="notes" id="nt">
-    <div class="note" data-k="1"><h4><span class="dot"></span>Gæsten skriver, ikke klikker</h4>
-      <p>Ingen app, ingen konto, ingen menu at scrolle igennem. Agenten forstår "en stor pepperoni uden løg" og finder selv varen i menukortet.</p></div>
-    <div class="note" data-k="2"><h4><span class="dot"></span>Den svarer på det, telefonen ellers skal</h4>
-      <p>Allergier, halal, åbningstider, hvor lang tid der går. Det er de spørgsmål, der får folk til at ringe midt i myldretiden, eller til at gå videre til en anden.</p></div>
-    <div class="note" data-k="3"><h4><span class="dot"></span>Den sælger opad uden at være anmassende</h4>
-      <p>Et forslag, én gang, baseret på hvad der er i kurven. Gennemsnitsbonnen stiger, uden at gæsten oplever det som salg.</p></div>
-    <div class="note" data-k="4"><h4><span class="dot"></span>MobilePay direkte i samtalen</h4>
-      <p>Betaling sker med det, danskere faktisk bruger. Ingen omdirigering til en platform, og pengene går direkte til restauranten.</p></div>
-    <div class="note" data-k="5"><h4><span class="dot"></span>Nul kommission, og kunden er restaurantens</h4>
-      <p>Telefonnummeret, ordren og historikken ligger hos restauranten. Ikke hos Wolt. Næste gang kan de skrive til gæsten selv.</p></div>
+    <div class="note" data-k="1"><h4><span class="dot"></span>The guest types, instead of clicking</h4>
+      <p>No app, no account, no menu to scroll through. The agent understands "a large pepperoni, hold the onion" and finds the item on the menu itself.</p></div>
+    <div class="note" data-k="2"><h4><span class="dot"></span>It answers what the phone would otherwise have to</h4>
+      <p>Allergens, halal, opening hours, how long the wait is. These are the questions that make people ring during the rush, or give up and order somewhere else.</p></div>
+    <div class="note" data-k="3"><h4><span class="dot"></span>It upsells without pushing</h4>
+      <p>One suggestion, once, based on what is already in the basket. Average order value goes up without the guest feeling sold to.</p></div>
+    <div class="note" data-k="4"><h4><span class="dot"></span>Payment inside the conversation</h4>
+      <p>Local payment methods, whatever the market actually uses: MobilePay, Apple Pay, Google Pay, cards. No redirect to a platform, and the money goes straight to the restaurant.</p></div>
+    <div class="note" data-k="5"><h4><span class="dot"></span>No commission, and the customer belongs to the restaurant</h4>
+      <p>The phone number, the order and the history sit with the restaurant, not with the delivery platform. Next time they can reach the guest directly.</p></div>
   </div>
 </div>
 
-<div class="ed"><b>Samme agent, flere kanaler.</b> Den samme samtale kan ligge på restaurantens egen side, på SMS, på Messenger og på WhatsApp. På den danske hjemmeside er webchat og SMS det, der rammer alle. WhatsApp giver mening for restauranter med mange udenlandske gæster, hvor tyske, hollandske og spanske turister i forvejen skriver.
+<div class="ed"><b>One agent, several channels.</b> The same conversation runs on WhatsApp, on the restaurant's own site, on SMS and on Messenger. In most of Europe, Latin America, South Asia and the Middle East, WhatsApp is where guests already are, so that is usually the primary channel. In the Nordics it is web chat and SMS. The agent is the same either way, and the channel is chosen per market rather than assumed.
 <div class="chans">
-<span class="ch">Webchat på egen side</span><span class="ch">SMS</span>
-<span class="ch w">WhatsApp</span><span class="ch">Messenger</span><span class="ch o">RCS, når Danmark er klar i 2027</span>
+<span class="ch w">WhatsApp Business API</span><span class="ch">Web chat on own domain</span><span class="ch">SMS</span><span class="ch">Messenger</span><span class="ch">Instagram DM</span><span class="ch o">RCS, as carriers enable it</span>
 </div></div>
 </div></section>
 
 <section class="alt"><div class="w">
-<h2>Hvad jeg bygger</h2>
-<p class="lede">Tre ting. De kan købes hver for sig, og jeg starter altid med en gratis demo på restaurantens eget menukort.</p>
+<h2>What I build</h2>
+<p class="lede">Three things, available separately. I always start with a free demo built on the restaurant's own menu, so there is something real to judge before any money changes hands.</p>
 <div class="grid">
-<div class="card"><h3>Egen bestillingsside</h3>
-<p>På restaurantens eget domæne. Ingen kommission per ordre.</p>
-<ul><li>MobilePay og kort</li><li>SMS til gæsten når maden er klar</li><li>Bon til køkkenet eller printer</li><li>Flere afdelinger på én side</li></ul></div>
-<div class="card"><h3>Chatagent</h3>
-<p>Tager ordren og bordbestillingen, og svarer på spørgsmål.</p>
-<ul><li>Dansk, engelsk, tysk, spansk</li><li>Kender menuen og allergener</li><li>Sender kun besked videre når et menneske skal svare</li><li>Webchat, SMS, WhatsApp, Messenger</li></ul></div>
-<div class="card"><h3>Prognose</h3>
-<p>Hvor mange gæster kommer i morgen, og hvad skal der forberedes.</p>
-<ul><li>Bygget på restaurantens egne tal</li><li>Ugedag, sæson, ferier, vejr</li><li>Per dagsdel og per afdeling</li><li>Kan laves på sidste års tal, uden at installere noget</li></ul></div>
+<div class="card"><h3>Own ordering channel</h3>
+<p>On the restaurant's own domain. No commission per order.</p>
+<ul><li>Local payment methods and cards</li><li>Message to the guest when the food is ready</li><li>Ticket to the kitchen display or printer</li><li>Multiple locations on one page</li></ul></div>
+<div class="card"><h3>AI chat agent</h3>
+<p>Takes orders and table bookings, and answers questions.</p>
+<ul><li>Multilingual, including Danish, English, German, Spanish, Urdu</li><li>Knows the menu, prices and allergens</li><li>Escalates to a human only when it needs to</li><li>WhatsApp, web chat, SMS, Messenger</li></ul></div>
+<div class="card"><h3>Demand forecasting</h3>
+<p>How many guests are coming tomorrow, and what to prep.</p>
+<ul><li>Trained on the restaurant's own history</li><li>Day of week, season, holidays, weather, local events</li><li>Per daypart and per location</li><li>Can be run on last year's data with nothing installed</li></ul></div>
 </div></div></section>
 
 <footer id="kontakt"><div class="w">
-<h2>Skal jeg bygge en demo på jeres menukort?</h2>
-<p>Det er gratis, og I forpligter jer ikke til noget. Jeg bruger et par dage, I kigger på den, og så beslutter I.</p>
+<h2>Shall I build a demo on your menu?</h2>
+<p>It is free and there is no commitment. I spend a couple of days on it, you look at it, then you decide.</p>
 <p style="margin-top:20px;font-size:17px;color:#fff">
 <b>Sulaman Khan</b><br>
 <a href="mailto:se.sulaman.khan@gmail.com">se.sulaman.khan@gmail.com</a><br>
 <a href="tel:+923167852626">+92 316 785 2626</a><br>
-<a href="https://wa.me/923167852626" rel="noopener">Skriv til mig på WhatsApp</a>
+<a href="https://wa.me/923167852626" rel="noopener">Message me on WhatsApp</a>
 </p>
 <p style="margin-top:26px;font-size:13.5px;color:#89aaa3">
-Demoen på denne side er bygget fra bunden. Pizzeria Nord er opdigtet, og priser og menu er eksempler.
+The demo on this page was built from scratch. Pizzeria Nord is fictional, and the prices and menu are examples.
 </p>
 </div></footer>
 
@@ -222,21 +221,21 @@ var TH=document.getElementById('th'),RP=document.getElementById('rp'),
     NT=document.getElementById('nt');
 
 var SCRIPT=[
- {t:'bot',x:'Hej og velkommen til Pizzeria Nord. Skal du hente eller have leveret?',k:1,
-  r:['Hente','Leveret']},
- {t:'bot',x:'Fint. Hvad skulle det være?',
-  r:['En stor pepperoni uden løg','Hvad kan I anbefale?']},
- {t:'bot',x:'Stor pepperoni, uden løg. 129 kr. Noteret.\n\nEr der andet?',k:2,
-  r:['Har I noget uden gluten?','Nej tak, det var det']},
- {t:'bot',x:'Ja. Vi har glutenfri bund til alle pizzaer, det koster 20 kr ekstra. Skal jeg skifte din pepperoni til glutenfri?',
-  r:['Nej, almindelig bund er fine','Ja tak, glutenfri']},
- {t:'bot',x:'Så bliver det den almindelige.\n\nMange tager en hvidløgsdip til pepperoni. 15 kr. Skal jeg lægge en ved?',k:3,
-  r:['Ja tak','Nej tak']},
- {t:'bot',x:'Tilføjet.\n\nDin ordre:\n1 stor pepperoni uden løg, 129 kr\n1 hvidløgsdip, 15 kr\nI alt 144 kr\n\nKlar til afhentning om cirka 20 minutter. Skal jeg sende betalingen?',
-  r:['Ja, betal med MobilePay']},
- {t:'sys',x:'MobilePay, 144,00 kr. Betaling gennemført.',k:4},
- {t:'bot',x:'Tak. Ordren er sendt til køkkenet, og du får en SMS når den er klar til afhentning.'},
- {t:'sys',x:'SMS sendt: "Din ordre hos Pizzeria Nord er klar. Vi ses. /Nord"',k:5},
+ {t:'bot',x:'Hi, welcome to Pizzeria Nord. Is this for pickup or delivery?',k:1,
+  r:['Pickup','Delivery']},
+ {t:'bot',x:'Great. What can I get you?',
+  r:['A large pepperoni, no onion','What do you recommend?']},
+ {t:'bot',x:'Large pepperoni, no onion. 129 kr. Got it.\n\nAnything else?',k:2,
+  r:['Do you have gluten free?','No thanks, that is it']},
+ {t:'bot',x:'Yes. We do a gluten free base on any pizza, 20 kr extra. Shall I switch your pepperoni to gluten free?',
+  r:['No, regular base is fine','Yes please, gluten free']},
+ {t:'bot',x:'Regular base then.\n\nMost people add a garlic dip with pepperoni. 15 kr. Shall I put one in?',k:3,
+  r:['Yes please','No thanks']},
+ {t:'bot',x:'Added.\n\nYour order:\n1 large pepperoni, no onion, 129 kr\n1 garlic dip, 15 kr\nTotal 144 kr\n\nReady for pickup in about 20 minutes. Shall I send the payment link?',
+  r:['Yes, pay now']},
+ {t:'sys',x:'Payment received, 144.00 kr.',k:4},
+ {t:'bot',x:'Thank you. The order has gone to the kitchen and you will get a message when it is ready for pickup.'},
+ {t:'sys',x:'Message sent: "Your order at Pizzeria Nord is ready. See you soon. /Nord"',k:5},
  {t:'end'}
 ];
 
@@ -263,21 +262,21 @@ function step(){
   var s=SCRIPT[i];
   if(!s)return;
   if(s.t==='end'){
-    ST.textContent='Samtalen er slut';
+    ST.textContent='End of conversation';
     RP.innerHTML='';
     var b=document.createElement('button'); b.className='again';
-    b.textContent='Kør demoen igen'; b.onclick=reset; RP.appendChild(b);
+    b.textContent='Run the demo again'; b.onclick=reset; RP.appendChild(b);
     return;
   }
   if(s.t==='sys'){
     setTimeout(function(){ add('sys',s.x); note(s.k); i++; step(); },700);
     return;
   }
-  ST.textContent='Skriver...';
+  ST.textContent='Typing...';
   var tp=document.createElement('div'); tp.className='typing';
   tp.innerHTML='<i></i><i></i><i></i>'; TH.appendChild(tp); TH.scrollTop=TH.scrollHeight;
   setTimeout(function(){
-    tp.remove(); ST.textContent='Svarer med det samme';
+    tp.remove(); ST.textContent='Replies instantly';
     add('bot',s.x); note(s.k);
     if(s.r)chips(s.r); else { i++; step(); }
   }, 620+Math.min(s.x.length*7,900));
